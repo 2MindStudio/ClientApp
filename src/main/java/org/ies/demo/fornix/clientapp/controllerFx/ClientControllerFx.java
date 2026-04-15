@@ -139,9 +139,6 @@ public class ClientControllerFx implements Initializable {
             throw new ConstraintsException(errorProperty.getValue());
         }
         String hash = encoder.encode(password.getText());
-        //Para login no debes hashear la contraseña del usuario y compararla así,
-        // porque BCrypt genera hashes distintos cada vez.
-        // encoder.matches(passwordPlano, hashGuardado)
 
         clientService.saveClient(name,hash);
         stageManager.switchToNextScene(FxmlView.LOGIN);
